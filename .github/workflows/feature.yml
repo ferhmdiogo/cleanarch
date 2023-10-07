@@ -1,0 +1,23 @@
+name: feature deployment
+
+on:
+  push:
+    branches: [feature/**]
+  pull_request:
+    types:
+      - opened
+    paths:
+      - '.github/workflows/deploy.yml'
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo Building the app
+      
+
+
+
+    
