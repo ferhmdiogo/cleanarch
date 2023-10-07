@@ -1,0 +1,36 @@
+name: cleanarch deployment
+
+on:
+  push:
+      branches: [main]
+  pull_request:
+      branches: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo Building the app
+      
+  # deploy desenvolvimento
+  deploy-develop:
+    runs-on: ubuntu-latest
+    environment:
+      name: develop
+    needs: build
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v1
+        
+  # deploy desenvolvimento
+  deploy-homologation:
+    runs-on: ubuntu-latest
+    environment:
+      name: homologation
+    needs: deploy-develop
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v1        
+
+    
