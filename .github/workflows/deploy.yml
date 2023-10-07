@@ -2,9 +2,13 @@ name: cleanarch deployment
 
 on:
   push:
-      branches: [main]
+    branches: [feature/*]
   pull_request:
-      branches: [main]
+    branches:
+      - develop
+      - release/**
+      - main
+
   workflow_dispatch:
 jobs:
   build:
