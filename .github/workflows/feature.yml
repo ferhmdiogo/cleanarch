@@ -1,0 +1,21 @@
+name: "1 - [FEAT] Build & PR"
+
+on:
+  push:
+    branches:
+      - 'feature**'
+      - 'fix**s'
+
+
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: echo Building the app
+      
+
+
+
+    
