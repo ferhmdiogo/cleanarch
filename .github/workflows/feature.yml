@@ -6,15 +6,7 @@ on:
       - 'feature**'
       - 'fix**'
       -
-  workflow_call:
-    inputs:
-      application-publish:
-        required: false
-        type: boolean
-        default: false
-      deploy-dev-account:
-        required: false
-        type: string
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
