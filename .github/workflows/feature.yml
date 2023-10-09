@@ -6,21 +6,20 @@ on:
       - 'feature**'
       - 'fix**'
       -
-  workflow_call:
-    inputs:
-      application-publish:
-        required: false
-        type: boolean
-        default: false
-      deploy-dev-account:
-        required: false
-        type: string
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-        run: echo Building the app
+      - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+          cache: maven
+      - name: Build with maven
+        run: mvn clean install
       
 
 
