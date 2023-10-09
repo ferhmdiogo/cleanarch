@@ -1,13 +1,11 @@
-name: feature deployment
+name: "1 - [FEAT] Build & PR"
 
 on:
   push:
-    branches: [feature/**]
-  pull_request:
-    types:
-      - opened
-    paths:
-      - '.github/workflows/deploy.yml'
+    branches:
+      - 'feature**'
+      - 'fix**s'
+
 
   workflow_dispatch:
 jobs:
